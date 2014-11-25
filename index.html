@@ -93,7 +93,7 @@
           </tr>
           <tr ng-repeat="mutualista in mutualistas | orderBy:predicate:reverse">
             <td><a href="" ng-click="toggleSelected(mutualista)">{{mutualista.selected | showAction}}</a></td>
-            <td>{{$index}}.- {{mutualista.NOMBRE}}</td>
+            <td>{{$index + 1}}.- {{mutualista.NOMBRE}}</td>
             <td>{{mutualista.META_ADOLESCENTE}}</td>
             <td>{{mutualista.META_ADULTO}}</td>
             <td>{{mutualista.META_ADULTO_MAYOR}}</td>
