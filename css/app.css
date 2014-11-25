@@ -1,0 +1,16 @@
+.seleccionada {
+  background: beige;
+}
+
+.promedio_nacional {
+  background: pink;
+}
+
+.carousel img {
+  margin: 0 auto;
+  width: 600px;
+}
+
+.carousel-caption {
+  color: red;
+}

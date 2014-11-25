@@ -1,0 +1,107 @@
+<!doctype html>
+<html ng-app="saludApp">
+<head>
+  <meta charset="utf-8">
+  <title>Comparativa de Mutualistas</title>
+  <!-- for best results of ngCloak -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <div class="row">
+    <div class="md-col-6">
+      <carousel>
+        <slide>
+          <img src="img/1.jpg">
+          <div class="carousel-caption">
+            <h4>Elija para su departamento<h4>
+            <p>Compare Mutualistas</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="img/2.jpg">
+          <div class="carousel-caption">
+            <h4>Qué es esta aplicación?<h4>
+            <p>Inciativa de MSP y DATA para ...</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="img/3.jpg">
+          <div class="carousel-caption">
+            <h4>Elija hasta febrero<h4>
+            <p>Puede cambiarse si tiene más de 2 años de antiguedad</p>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
+  <div ng-controller="OptionsController">
+    <div class="row">
+      <div class="col-md-6 mutualista_actual">
+        <h2>1. Elegi tu mutualista</h2>
+        <input type="text" ng-model="selected" placeholder="Departamento" typeahead="state as state.name for state in states | filter:$viewValue" class="form-control" />
+      </div>
+      <div class="col-md-6 criterios_predefinidos">
+        <h2>2. Selecciona tus criterios o intereses</h2>
+        <accordion close-others="true">
+        <accordion-group heading="{{interest.title}}" is-open="status.is" ng-repeat="interest in interests">
+            {{interest.explanation}}
+          </accordion-group>
+        </accordion>
+      </div>
+    </div>
+    <div class="row" ng-controller="ListController">
+      <div class="col-md-12">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nombre
+                <a href="" ng-click="reOrder(predicate='NOMBRE')">^</a>
+              </th>
+              <th>Adolescente
+                <a href="" ng-click="reOrder('META_ADOLESCENTE')">^</a>
+              </th>
+              <th>Adulto
+                <a href="" ng-click="reOrder('META_ADULTO')">^</a>
+              </th>
+              <th>Adulto Mayor
+                <a href="" ng-click="reOrder('META_ADULTO_MAYOR')">^</a>
+              </th>
+            </th>
+          </thead>
+          <tbody>
+            <tr class="promedio_nacional">
+              <td></td>
+              <td>Promedio Nacional</td>
+              <td>50%</td>
+              <td>50%</td>
+              <td>50%</td>
+            </tr>
+            <tr ng-repeat="mutualista in seleccionadas | orderBy:predicate:reverse" class="seleccionada">
+              <td><a href="" ng-click="toggleSelected(mutualista)">{{mutualista.selected | showAction}}</a></td>
+              <td>{{mutualista.NOMBRE}}</td>
+              <td>{{mutualista.META_ADOLESCENTE}}</td>
+              <td>{{mutualista.META_ADULTO}}</td>
+              <td>{{mutualista.META_ADULTO_MAYOR}}</td>
+            </tr>
+            <tr ng-repeat="mutualista in mutualistas | orderBy:predicate:reverse">
+              <td><a href="" ng-click="toggleSelected(mutualista)">{{mutualista.selected | showAction}}</a></td>
+              <td>{{$index}}.- {{mutualista.NOMBRE}}</td>
+              <td>{{mutualista.META_ADOLESCENTE}}</td>
+              <td>{{mutualista.META_ADULTO}}</td>
+              <td>{{mutualista.META_ADULTO_MAYOR}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/show_action.js"></script>
+  <script src="js/options_controller.js"></script>
+  <!-- <script src="js/carousel_controller.js"></script> -->
+</body>
+</html>
