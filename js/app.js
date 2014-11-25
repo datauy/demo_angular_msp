@@ -2,7 +2,7 @@ var app = angular.module('saludApp', ['saludApp.filters', 'ui.bootstrap']);
 
 app.controller("ListController", ['$scope', '$http', function($scope, $http) {
   $scope.seleccionadas = [];
-  url = 'data/' + $scope.selectedState.name + '.json';
+  url = 'data/' + $scope.selectedState.name.toLowerCase() + '.json';
   $http.get(url)
     .then(function(result) {
       $scope.mutualistas = result.data;
