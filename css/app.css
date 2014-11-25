@@ -1,9 +1,13 @@
 .seleccionada {
-  background: beige;
+  background: #B3CDB0;
 }
 
-.promedio_nacional {
-  background: pink;
+.table-striped > tbody > tr:nth-child(2n+1).seleccionada {
+  background: #C0C2AA;
+}
+
+#promedio-nacional {
+  background: #EFA93A;
 }
 
 .carousel img {
