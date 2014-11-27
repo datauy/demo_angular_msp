@@ -18,3 +18,12 @@
 .carousel-caption {
   color: red;
 }
+
+/* options icons */
+a .glyphicon-star {
+  color: #FFD700;
+}
+
+a .glyphicon-remove {
+  color: #800000;
+}
