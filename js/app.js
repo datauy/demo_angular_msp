@@ -1,4 +1,4 @@
-var app = angular.module('saludApp', ['saludApp.filters', 'ui.bootstrap']);
+var app = angular.module('saludApp', ['saludApp.filters', 'ui.bootstrap', 'highcharts-ng']);
 
 app.controller("ListController", ['$scope', '$http', function($scope, $http) {
   $scope.seleccionadas = [];
@@ -26,3 +26,4 @@ app.controller("ListController", ['$scope', '$http', function($scope, $http) {
     }
   }
 }]);
+
