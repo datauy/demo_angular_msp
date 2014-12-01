@@ -50,12 +50,12 @@
           </th>
         </thead>
         <tbody>
-          <tr id="promedio-nacional">
+          <tr class="national-average">
             <td></td>
             <td>Promedio Nacional</td>
-            <td>50%</td>
-            <td>50%</td>
-            <td>50%</td>
+            <td><div class="info">50%</div></td>
+            <td><div class="info">50%</div></td>
+            <td><div class="info">50%</div></td>
           </tr>
           <tr ng-repeat="mutualista in seleccionadas | orderBy:predicate:reverse" class="seleccionada">
             <td>
@@ -70,23 +70,52 @@
             <td>{{mutualista.META_ADULTO_MAYOR}}</td>
           </tr>
           <tr ng-repeat="mutualista in mutualistas | orderBy:predicate:reverse">
-            <td>
+            <td class="selection">
               <a href="" ng-click="toggleSelected(mutualista)">
                 <span ng-show="!mutualista.selected" class="glyphicon glyphicon-star" aria-hidden="true"></span>
                 <span ng-show="mutualista.selected"  class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </a>
             </td>
-            <td>{{$index + 1}}.- {{mutualista.NOMBRE}}</td>
-            <td>{{mutualista.META_ADOLESCENTE}}<div hc-gauge mutualista={{mutualista}} value="META_ADOLESCENTE"></td>
-            <td>{{mutualista.META_ADULTO}}</td>
-            <td>{{mutualista.META_ADULTO_MAYOR}}</td>
+            <td class="name">{{$index + 1}}.- {{mutualista.NOMBRE}}</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                  <span class="sr-only">{{mutualista.META_ADOLESCENTE}} %</span>
+                </div>
+              </div>
+              <div class="info">
+                {{mutualista.META_ADOLESCENTE}}
+              </div>
+            </td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                  <span class="sr-only">{{mutualista.META_ADULTO}} %</span>
+                </div>
+              </div>
+              <div class="info">
+                {{mutualista.META_ADULTO}}
+              </div>
+            </td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                  <span class="sr-only">{{mutualista.META_ADULTO_MAYOR}} %</span>
+                </div>
+              </div>
+              <div class="info">
+                {{mutualista.META_ADULTO_MAYOR}}
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div ng-controller="orderedHeatmap">
-    <highchart id="chart1" config="chartConfig" class="span10"></highchart>
+  <div class="row">
+    <div ng-controller="heatmap" class="col-md-offset-3 col-md-6">
+      <highchart id="chart1" config="chartConfig" class="span10"></highchart>
+    </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.js"></script>
   <!-- this is needed to use highcharts without jQuery -->
