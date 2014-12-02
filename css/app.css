@@ -32,6 +32,10 @@
   background: #C0C2AA;
 }
 
+.viz {
+  text-align: center;
+}
+
 /* Table - progress bar */
 .progress {
   height: 6px;
