@@ -2,7 +2,7 @@
 <html ng-app="saludApp">
 <head>
   <meta charset="utf-8">
-  <title>Comparativa de Mutualistas</title>
+  <title>Wireframe Interactivo Comparativa de Mutualistas</title>
   <!-- for best results of ngCloak -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -11,15 +11,21 @@
 <body>
   <div class="jumbotron">
     <div class="container">
-      <h1>Comparativa de Mutualistas</h1>
-      <p>Compare dos mutualistas a través de indicadores</p>
+      <h1>Wireframe Interactivo (ayuda visual)</h1>
+      <p>Complemento a Wireframes presentados el 25/11</p>
+      <p>Nota: Esto sirve sólo como ayuda visual, <b>no se espera que funcione</b></p>
     </div>
   </div>
-  <div ng-controller="OptionsController">
+  <div ng-controller="OptionsController" class="container">
     <div class="row">
       <div class="col-md-6 mutualista_actual">
         <h2>1. Elegi tu mutualista</h2>
-        <input type="text" ng-model="selected" placeholder="Departamento" typeahead="state as state.name for state in states | filter:$viewValue" class="form-control" />
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="selected" placeholder="Departamento" typeahead="state as state.name for state in states | filter:$viewValue" class="form-control" />
+        </div>
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="selected" placeholder="Mutualista" typeahead="mutualista as mutualista.name for mutualista in mutualistas | filter:$viewValue" class="form-control" />
+        </div>
       </div>
       <div class="col-md-6 criterios_predefinidos">
         <h2>2. Selecciona tus criterios o intereses</h2>
@@ -30,6 +36,7 @@
         </accordion>
       </div>
     </div>
+    <h1 class="info_wireframe">Opción 1: tablas con indicadores visuales</h1>
     <div class="table-responsive" ng-controller="ListController">
       <table class="table table-striped">
         <thead>
@@ -116,9 +123,12 @@
       </table>
     </div>
   </div>
-  <div class="row">
-    <div ng-controller="heatmap" class="col-md-offset-3 col-md-6">
-      <highchart id="chart1" config="chartConfig" class="span10"></highchart>
+  <div class="container">
+    <h1 class="info_wireframe">Opcion 2: "Mapa de colores"</h1>
+    <div class="row">
+      <div ng-controller="heatmap" class="col-md-offset-3 col-md-6">
+        <highchart id="chart1" config="chartConfig" class="span10"></highchart>
+      </div>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.js"></script>

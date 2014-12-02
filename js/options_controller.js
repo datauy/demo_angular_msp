@@ -4,6 +4,11 @@ angular.module('saludApp').controller("OptionsController", ['$scope', function($
     { id: 2, name: 'Colonia' },
     { id: 3, name: 'Salto' }
   ];
+  $scope.mutualistas = [
+    { id: 1, name: 'Medica Uruguaya',
+      id: 2, name: 'COSEM'
+    }
+  ];
   $scope.selectedState = $scope.states[0];
 
   $scope.interests = [
