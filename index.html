@@ -76,11 +76,18 @@
           </tr>
           <tr ng-repeat="mutualista in mutualistas | orderBy:predicate:reverse">
             <td class="selection">
-              <a href="" ng-click="toggleSelected(mutualista)">
-                <span ng-show="!mutualista.selected" class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                <span ng-show="mutualista.selected"  class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </a>
-              <a href="#">Comparar</a>
+              <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-default" ng-click="toggleSelected(mutualista)">
+                  {{ mutualista.selected | showAction}}
+                </button>
+                <button type="button" class="btn btn-default">
+                  Comparar
+                </button>
+              </div>
+              <!-- <a href="" ng&#45;click="toggleSelected(mutualista)"> -->
+              <!--   <span ng&#45;show="!mutualista.selected" class="glyphicon glyphicon&#45;star" aria&#45;hidden="true"></span> -->
+              <!--   <span ng&#45;show="mutualista.selected"  class="glyphicon glyphicon&#45;remove" aria&#45;hidden="true"></span> -->
+              <!-- </a> -->
             </td>
             <td class="name">{{$index + 1}}.- {{mutualista.NOMBRE}}</td>
             <td>

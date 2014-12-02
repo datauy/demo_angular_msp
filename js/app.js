@@ -25,5 +25,9 @@ app.controller("ListController", ['$scope', '$http', function($scope, $http) {
       $scope.seleccionadas.splice(index, 1);
     }
   }
+
+  $scope.compareSelected = function() {
+    alert("Se comparan las mutualistas en funcion de más criterios");
+  }
 }]);
 
