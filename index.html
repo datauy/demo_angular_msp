@@ -20,12 +20,9 @@
     <div class="row">
       <div class="col-md-6 mutualista_actual">
         <h2>1. Elegi tu mutualista</h2>
-        <div class="input-group">
           <input type="text" class="form-control" ng-model="selected" placeholder="Departamento" typeahead="state as state.name for state in states | filter:$viewValue" class="form-control" />
-        </div>
-        <div class="input-group">
+          <br />
           <input type="text" class="form-control" ng-model="selected" placeholder="Mutualista" typeahead="mutualista as mutualista.name for mutualista in mutualistas | filter:$viewValue" class="form-control" />
-        </div>
       </div>
       <div class="col-md-6 criterios_predefinidos">
         <h2>2. Selecciona tus criterios o intereses</h2>
