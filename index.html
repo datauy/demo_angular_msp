@@ -16,7 +16,7 @@
       <p>Nota: Esto sirve sólo como ayuda visual, <b>no se espera que funcione</b></p>
     </div>
   </div>
-  <div ng-controller="OptionsController" class="container">
+  <div ng-controller="OptionsController" class="container" ng-cloak>
     <div class="row">
       <div class="col-md-6 mutualista_actual">
         <h2>1. Elegi tu mutualista</h2>
@@ -34,7 +34,7 @@
       </div>
     </div>
     <h1 class="info_wireframe">Opción 1: tablas con indicadores visuales</h1>
-    <div class="table-responsive" ng-controller="ListController">
+    <div class="table-responsive" ng-controller="ListController" ng-cloak>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -131,7 +131,7 @@
     <h1 class="info_wireframe">Opcion 2: "Mapa de colores"</h1>
     <div class="row">
       <div ng-controller="heatmap" class="col-md-offset-3 col-md-6">
-        <highchart id="chart1" config="chartConfig" class="span10"></highchart>
+        <highchart id="chart1" config="chartConfig" class="span10" ng-cloak></highchart>
       </div>
     </div>
   </div>
